@@ -9,3 +9,4 @@ set(CMAKE_CXX_STANDARD 23)
 
 add_executable(gnuradio4-block-parser parse_registrations.cpp)
 target_compile_definitions(gnuradio4-block-parser PRIVATE GR4_PARSER_VERSION="${CMAKE_PROJECT_VERSION}")
+install(TARGETS gnuradio4-block-parser)
