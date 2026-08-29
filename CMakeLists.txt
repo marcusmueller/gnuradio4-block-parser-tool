@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(
   parseReg
-  VERSION 1.0
+  VERSION 1.1
   LANGUAGES CXX)
 
 # use HOST compiler to build gnuradio_4_0_parse_registrations
