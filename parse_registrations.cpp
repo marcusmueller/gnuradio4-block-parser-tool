@@ -30,7 +30,6 @@
 #include <fstream>
 #include <functional>
 #include <iostream>
-#include <ranges>
 #include <string>
 #include <string_view>
 #include <vector>
