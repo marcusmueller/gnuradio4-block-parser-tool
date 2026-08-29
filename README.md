@@ -29,6 +29,10 @@ Of course, seriously, this is a single C++ source file with no external
 dependencies, so you might as well manually build it:
 
 ```shell
-c++ -std=c++23 -o gnuradio_4_0_parse_registrations parse_registrations.cpp
+c++ \
+  -std=c++23 \
+  -GR4_PARSER_VERSION={X.Y version as in git tag} \
+  -o gnuradio4-block-parser \
+  parse_registrations.cpp
 ```
 

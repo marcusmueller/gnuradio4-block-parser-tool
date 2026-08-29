@@ -1,4 +1,4 @@
-/// parse_registrations.cpp
+/// parse_regitrations.cpp
 /// ---------------------------------------------------------------------------
 /// This parser scans a single .hpp for lines containing:
 ///
@@ -33,6 +33,10 @@
 #include <string>
 #include <string_view>
 #include <vector>
+
+#ifndef GR4_PARSER_VERSION
+#define GR4_PARSER_VERSION "0.0 (unknown)"
+#endif
 
 constexpr std::string_view kRegistrationMacroName = "GR_REGISTER_BLOCK";
 
@@ -272,8 +276,14 @@ static std::string replacePlaceholders(std::string param, const std::vector<std:
 
 int main(int argc, char** argv) try {
     std::filesystem::path commandPath = argv[0];
+    if (argc == 2 && argv[1] == std::string_view("--version")) {
+        std::cout << GR4_PARSER_VERSION << "\n";
+        return 0;
+    }
     if (argc < 3) {
-        std::cerr << std::format("Usage: {} <header.hpp> <outputDir> [--split | -s] [--registry-header include_file.hpp]\n", commandPath.string());
+        std::cerr << std::format("Usage: {0} <header.hpp> <outputDir> [--split | -s] [--registry-header include_file.hpp]\n"
+                                 "       {0} --version\n",
+            commandPath.string());
         return 1;
     }
 
